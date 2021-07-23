@@ -14,32 +14,28 @@ def main(url):
 	chrome_options.add_argument('--allow-running-insecure-content')
 	chrome_options.add_argument("--window-size=720,480")
 
+	user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
+	chrome_options.add_argument(f'user-agent={user_agent}')
+
 	# webdriver for our browser
 	driver = webdriver.Chrome(options=chrome_options)
 	
-	driver.get("https://snaptik.app")
+	driver.get("https://musicaldown.com")
 
 	# enter url and submit
-	elem = driver.find_element_by_id('url').send_keys(url)
-	elem = driver.find_element_by_id('submiturl').click()
+	elem = driver.find_element_by_id('link_url').send_keys(url)
+	elem = driver.find_element_by_xpath('//*[@id="submit-form"]/div/div[2]/button').click()
 
 	wait = WebDriverWait(driver, 20) # if your internet connection is very slow, change the "20" here with a larger number
 
-	servers = ['//*[@id="snaptik-video"]/article/div[2]/div/a[1]', '//*[@id="snaptik-video"]/article/div[2]/div/a[2]', '//*[@id="snaptik-video"]/article/div[2]/div/a[3]']
-
-	for server in servers:
-		presence = wait.until(ec.presence_of_element_located((By.XPATH, server)))
-
-		# if a server does not have a download link available, look for the next one
-		if presence:
-				link = presence.get_attribute('href')
-				download(link)
-				break
-
+	presence = wait.until(ec.presence_of_element_located((By.XPATH, server)))
+	link = presence.get_attribute('href')
+	download(link)
+	
 	driver.quit()
 
 def download(mp4_link):
-	# user agent is needed in order to access the .mp4 url
+	# user agent is need in order to access the .mp4 url
 	user_agent = {'User-agent': 'Mozilla/5.0'}
 
 	r = requests.get(mp4_link, headers=user_agent)
