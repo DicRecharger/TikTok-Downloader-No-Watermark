@@ -39,7 +39,7 @@ def main(url):
 	driver.quit()
 
 def download(mp4_link):
-	# user agent is need in order to access the .mp4 url
+	# user agent is needed in order to access the .mp4 url
 	user_agent = {'User-agent': 'Mozilla/5.0'}
 
 	r = requests.get(mp4_link, headers=user_agent)
