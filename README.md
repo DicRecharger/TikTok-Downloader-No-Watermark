@@ -18,6 +18,6 @@ Simply run the script and input the TikTok URL!
 If you want to import this into another script, you could simply do: 
 
 ```py
-import TikTok-Downloader-v2 as tiktok_dl
+import TikTokDownloaderv2 as tiktok_dl
 tiktok_dl.download_tiktok(url)
 ```
