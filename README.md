@@ -21,3 +21,5 @@ If you want to import this into another script, you could simply do:
 import TikTokDownloaderv2 as tiktok_dl
 tiktok_dl.download_tiktok(url)
 ```
+
+If you like my work, I will be uploading a Reddit Post (including videos) downloader, an Instagram Post (except stories) downloader and maybe others when I document them, so stay tuned!
