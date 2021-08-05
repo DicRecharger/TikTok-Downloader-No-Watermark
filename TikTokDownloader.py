@@ -28,23 +28,27 @@ def main(url):
 
 	wait = WebDriverWait(driver, 20) # if your internet connection is very slow, change the "20" here with a larger number
 
-	presence = wait.until(ec.presence_of_element_located((By.XPATH, server)))
+	# wait until download buttons are found, then copy the link
+	presence = wait.until(ec.presence_of_element_located((By.XPATH, '/html/body/div[2]/div/div[2]/div[2]/a[3]')))
 	link = presence.get_attribute('href')
-	download(link)
-	
+
 	driver.quit()
-
-def download(mp4_link):
-	# user agent is need in order to access the .mp4 url
-	user_agent = {'User-agent': 'Mozilla/5.0'}
-
-	r = requests.get(mp4_link, headers=user_agent)
-
+	
 	# filename is the tiktok's "id"
 	filename = url.strip('https://vm.tiktok.com/')[:-1]
 
 	if len(url) > 35:	# tiktok url's are usually 32 characters long, but some are way longer so we check for urls larger than 35 characters to be sure
 		filename = url.split('?', 1)[0].split('/')[-1] 		# we do some split magic here to get the authors id of the longer url, as the tiktok's "id" isn't available here
+
+	download(link, filename)
+	
+	
+
+def download(mp4_link, filename):
+	# user agent is need in order to access the .mp4 url
+	user_agent = {'User-agent': 'Mozilla/5.0'}
+
+	r = requests.get(mp4_link, headers=user_agent)
 	
 	with open(f'{filename}.mp4', 'wb') as f:
 		f.write(r.content)
