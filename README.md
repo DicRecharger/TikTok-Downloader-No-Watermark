@@ -23,3 +23,17 @@ tiktok_dl.download_tiktok(url)
 ```
 
 If you like my work, I will be uploading a Reddit Post (including videos) downloader, an Instagram Post (except stories) downloader and maybe others when I document them, so stay tuned!
+
+
+## Update v3
+
+Use **TikTok-Downloader-v3**. In order to install the requirements you will need to use `pip install -r requirements.txt`.
+
+To run it you need to type the command `python3 TikTokDownloaderv3.py` and hit Enter.
+
+### Key Improvements
+- **Error Handling**: Now handles HTTP errors and JSON parsing errors gracefully.
+- **Modularity**: Split the functionality into smaller, more focused functions for better readability and maintainability.
+- **URL Validation**: Consolidated URL validation logic to handle both mobile and web URLs more effectively.
+
+*The program may not work because the owner may have unsubscribed from Heroku.*
