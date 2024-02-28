@@ -31,7 +31,7 @@ def download_tiktok(url):
     r = requests.get(dl_url + tiktok_id, headers=user_agent)
     if r.status_code == 200:
         text = r.json()
-        playAddr = text.get('item', {}).get('video', {}).get('playAddr', None)
+        playAddr = text.get("aweme_list", None)[0].get('video', {}).get('play_addr', {}).get("url_list", None)
 
         if playAddr:
             download(playAddr[0], filename=tiktok_id)  
