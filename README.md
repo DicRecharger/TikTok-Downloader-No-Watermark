@@ -23,3 +23,12 @@ tiktok_dl.download_tiktok(url)
 ```
 
 If you like my work, I will be uploading a Reddit Post (including videos) downloader, an Instagram Post (except stories) downloader and maybe others when I document them, so stay tuned!
+
+## UPDATE
+
+Added a simple GUI.
+
+To use **TikTok-Downloader-v3** you need to enter the following command: `pip install -r requirements.txt`
+
+Then to run the program enter: `python3 .\TikTokDownloaderv3.py`
+
