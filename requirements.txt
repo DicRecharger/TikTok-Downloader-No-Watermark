@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 #selenium>=4.18.1
+=======
+selenium>=4.9.0
+>>>>>>> 085a52af76d0afb18ff0488847c608aee96f2c7e
 requests>=2.31.0
